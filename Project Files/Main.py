@@ -159,7 +159,6 @@ def exit_app():
     main.destroy()
 
 
-
 style = ttk.Style()
 style.configure('TButton', font=('Helvetica', 12, 'bold'), padding=6)
 style.configure('TLabel', font=('Helvetica', 14, 'bold'))
