@@ -5,7 +5,7 @@ import numpy as np
 from PIL import Image, ImageTk
 import datetime
 
-# ---------------------- Main Window ----------------------
+
 main = Tk()
 main.title("Forest Fire Detection System")
 main.geometry("1300x850")
@@ -18,7 +18,7 @@ frame_count = 0
 current_frame_index = 0
 previous_frame = None
 
-# ---------------------- Functions ----------------------
+
 
 def ColorFeaturesDetectFire(frame):
     msg = "No Fire Detected"
@@ -87,7 +87,7 @@ def process_next_frame():
     
     msg, mask = ColorFeaturesDetectFire(frame)
 
-    # 🔥 --------- IMPROVED: Highlight ONLY main fire ---------
+   
     if msg == "Fire Detected":
         contours, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
@@ -110,9 +110,9 @@ def process_next_frame():
                 # Label
                 cv2.putText(frame, "FIRE DETECTED", (x, y-10),
                             cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0,0,255), 2)
-    # --------------------------------------------------------
+  
 
-    # Motion Detection (unchanged)
+
     gray_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     gray_frame = cv2.GaussianBlur(gray_frame, (5, 5), 0)
     if previous_frame is None:
@@ -160,7 +160,7 @@ def exit_app():
     processing = False
     main.destroy()
 
-# ---------------------- UI Layout ----------------------
+
 
 style = ttk.Style()
 style.configure('TButton', font=('Helvetica', 12, 'bold'), padding=6)
